@@ -1,0 +1,107 @@
+// Same navbar for every page
+$background-color:      rgba(240, 240, 240, 0.8) !default;
+$text-color:            #000 !default;
+$logo:                  '../../../assets/elements/icons/logo/phi-solo.png' !default;
+$smoothed:              0.66s cubic-bezier(0.645, 0.045, 0.355, 1) !default; 
+$max-width:             960px !default;
+$font:                  'Open Sans', sans-serif !default;
+$font-size:             21px !default;
+
+$split: 768px !default;
+
+// @import './helper.scss';
+@import './expanded.navigation.scss';
+@import './closed.navigation.scss';
+
+.gn-bar {
+    // Position
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+
+    // Unselectable text
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    // Blur safari background like the iOS toolbar
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+
+    transition: background-color $smoothed;
+    background-color: $background-color;
+    color: $text-color;
+
+    height: 60px;
+}
+
+.gn-content {
+    max-width: $max-width;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+
+    .gn-list {
+        list-style-type: none;
+        display: flex;
+
+        .gn-item {
+            box-sizing: border-box;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            vertical-align: top;
+            cursor: pointer;
+            transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .gn-link {
+            font-size: $font-size;
+            @include responsive('line-height', $op-height, $ex-height);
+            letter-spacing: -.01em;
+            font-family: $font;
+
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+
+            cursor: pointer;
+            text-decoration: none;
+            white-space: nowrap;
+            outline-offset: -7px;
+            opacity: 0.75;
+
+            transition: opacity $smoothed;
+            color: $text-color;
+            
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        .gn-link-text {
+            display: none;
+        }
+    }
+
+    // TODO: Align logo
+    .gn-brandmark {
+        width: 60px;
+        height: 60px;
+
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: url($logo);
+        background-position: center;
+    }
+}
+
+// Clearfix (clear element under navbar)
+#navbar::after {
+    @include responsive('height', $op-height, $ex-height);
+    clear: both;
+    display: table;
+    content: "";
+}

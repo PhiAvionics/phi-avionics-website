@@ -1,0 +1,22 @@
+$ex-height:     60px !default;
+$ex-padding:    0 44px !default;
+$split:         768px !default;
+
+@media screen and (min-width: $split) {
+    .gn-content {
+        padding: $ex-padding;
+
+        .gn-header {
+            display: none;
+        }
+
+        .gn-list {
+            height: $ex-height;
+            justify-content: space-between;
+
+            .gn-item {
+                font-weight: 600;
+            }
+        }
+    }
+}

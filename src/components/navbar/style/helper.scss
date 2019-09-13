@@ -1,0 +1,6 @@
+$nav-split: 768px !default;
+
+@mixin responsive($property_name, $small, $large) {
+    #{$property_name}: $small;
+    @media only screen and (min-width: $nav-split) { #{$property_name}: $large; }
+}

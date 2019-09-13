@@ -1,0 +1,162 @@
+$op-height:         48px !default;
+// $split:             768px !default;
+$seperator-color:   gray !default;
+$op-list-font-size: 17px !default;
+$gradient-opacity:  0.5 !default;
+$gradient-height:   100px !default;
+
+$hamburger-layer-height: 0;
+$hamburger-layer-width: 0;
+$hamburger-layer-spacing: 0;
+$hamburger-padding-x: 0;
+$hamburger-padding-y: 0;
+
+@mixin list-transition($delay) {
+    transition-delay: $delay;
+    transition: opacity 0.3091s cubic-bezier(0.32, 0.08, 0.24, 1) 0.03s,
+                transform 0.3455s cubic-bezier(0.32, 0.08, 0.24, 1) 0.02s, -webkit-transform 0.3455s cubic-bezier(0.32, 0.08, 0.24, 1) 0.02s;
+}
+
+@media screen and (max-width: $split - 1) {
+    seperator {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+
+        background-color: $seperator-color;
+        transition: opacity $smoothed;
+        opacity: 0;
+    }
+
+    .gn-content {
+        .gn-header {
+            list-style-type: none;
+            
+            // Hamburger menu
+            .gn-menuicon {
+                height: $op-height;
+                width: $op-height;
+
+                .gn-menuicon-container {
+                    pointer-events: none;
+                    position: absolute;
+                    left: $hamburger-layer-width/2 - $hamburger-padding-x;
+                    top: ($hamburger-layer-height + $hamburger-layer-spacing) * 3 - 1 - $hamburger-padding-y;
+                }
+            }
+
+            // Logo
+            .gn-logo {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                width: 120px;
+                margin-left: -68px;
+                height: $op-height;
+            }
+
+            // Seperator
+            &::after {
+                @extend seperator;
+            }
+        }
+
+        .gn-list {
+            padding: 0 $op-height 0 $op-height;
+            margin-top: 1px;
+            justify-content: flex-start;
+            flex-direction: column;
+            overflow: hidden;
+            height: 0;
+
+            // Buttons
+            .gn-item {
+                // Text
+                .gn-link {
+                    line-height: 2.5em;
+                    font-size: $op-list-font-size;
+                    height: $op-height;
+                    text-align: left;
+                    width: 100%;
+                }
+
+                // Hide logo
+                &:not(.gn-item-menu) {
+                    display: none !important;
+                }
+
+                // Seperators
+                &:not(:nth-child(2))::before {
+                    @extend seperator;
+                }
+            }
+
+            & {
+                :nth-child(2) {
+                  @include list-transition(0);
+                }
+
+                :nth-child(3) {
+                  @include list-transition(0);
+                }
+
+                :nth-child(4) {
+                  @include list-transition(0);
+                }
+
+                :nth-child(5) {
+                  @include list-transition(0);
+                }
+            }
+
+            // Gradient
+            .gradient {
+                overflow: hidden;
+                position: absolute;
+                height: inherit;
+                right: 0;
+                left: 0;
+                z-index: 1;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    opacity: $gradient-opacity;
+                    height: $gradient-height;
+                    right: 0;
+                    left: 0;
+                    bottom: 0;
+
+                    background: linear-gradient(0deg, themed($background-color) 0%, rgba(0,0,0, 0) 100%);
+                }
+            }
+        }
+
+        .gn-list,
+        .gn-header {
+            transition: height $smoothed,
+                        background-color $smoothed;
+        }
+    }
+
+    // Extended menu
+    #gn-menustate:checked ~ .gn-content {
+        .gn-content:before,
+        .gn-header:after,
+        .gn-item-menu:before {
+            opacity: 1;
+        }
+
+        .gn-list,
+        .gn-header {
+            background-color: $background-color;
+        }
+
+        .gn-list {
+            // height: auto;
+            height: calc(100vh - #{ $op-height });
+        }
+    }
+}

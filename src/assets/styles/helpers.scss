@@ -1,0 +1,4 @@
+@mixin responsive($property_name, $small, $large) {
+    #{$property_name}: $small;
+    @media only screen and (min-width: $split) { #{$property_name}: $large; }
+}

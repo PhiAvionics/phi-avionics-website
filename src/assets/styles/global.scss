@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap');
+@import './reset.css';
+
+$split: 768px;
+
+@import './helpers.scss';
+
+// TODO: Do all imports here to allow override etc.
+@import '../../components/navbar/style/global.navigation.scss';
+@import '../../components/hamburger-menu/style/hamburger.scss';
+
+@import '../../components/sponsors/style/sponsors.scss';
+@import '../../components/footer/style/footer.scss';
+
+.section {
+    font-family: 'Open Sans', 'sans-serif';
+    margin-top: 40px;
+
+    .title {
+        font-weight: 400;
+        font-size: 3rem;
+        padding: 25px 25px 5px 25px;
+        margin: 0 auto;
+        max-width: 1600px;
+
+        @include responsive('text-align', center, left);
+    }
+
+    .textbox {
+        font-weight: 400px;
+        font-size: 27px;
+        max-width: 1700px;
+        margin: 15px auto 0 auto;
+    }
+}

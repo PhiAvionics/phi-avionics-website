@@ -1,0 +1,56 @@
+$pic-size: 100px;
+
+$name-color: black;
+$name-size: 21px;
+$title-size: 17px;
+
+$card-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.20);
+
+.team-list {
+    display: flex;
+    margin: 0 auto;
+
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    width: 350px;
+    position: relative;
+
+    padding: 10px 30px;
+    margin: 20px 20px 10px 20px;
+    
+    -moz-box-shadow: $card-shadow;
+    -webkit-box-shadow: $card-shadow;
+    box-shadow: $card-shadow;
+
+    .centered {
+        text-align: center;
+        position: relative;
+        transform: translateX(-50%);
+        left: 50%;
+    }
+
+    .tm-profile {
+        margin: 0 auto;
+        width: $pic-size;
+        border-radius: 50%;
+    }
+
+    .tm-name {
+        color: black;
+        font-size: $name-size;
+        font-weight: 600;
+    }
+
+    .tm-title {
+        color: #757575;
+        font-size: $title-size;
+        font-weight: 400;
+    }
+
+    .tm-description {
+        padding: 10px 0;
+    }
+}

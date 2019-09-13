@@ -1,0 +1,49 @@
+$banner-background: rgba(black, 0.75) !default;
+$banner-color: white !default;
+$banner-max-width: 960px !default;
+
+.header {
+    position: relative;
+    overflow: hidden;
+
+    .overlay {
+        .banner {
+            position: absolute;
+            transform: translateY(-100%);
+            width: 100%;
+        
+            background-color: $banner-background;
+            color: $banner-color;
+        
+            .content {
+                max-width: $banner-max-width;
+                margin: 0 auto;
+                padding: 20px 0;
+        
+                h1 {
+                    font-family: 'Open Sans';
+                }
+            }
+        }
+
+        .textbox {
+            font-family: 'Open Sans', sans-serif;
+            position: absolute;
+            top: 0;
+            right: 0;
+    
+            margin: 25px 45px;
+            max-width: 700px;
+    
+            .bn-title {
+                font-size: 32px;
+                font-weight: 600;
+            }
+    
+            .bn-text {
+                font-size: 27px;
+                font-weight: 300;
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+.parallax {
+    z-index: -1;
+    width: 100vw;
+    height: calc(100vh - 60px);
+    // @include responsive('height', calc(100vh - 48px - 74px), calc(100vh - 60px));
+    position: relative;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}

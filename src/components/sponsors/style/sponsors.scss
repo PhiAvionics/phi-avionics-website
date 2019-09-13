@@ -1,0 +1,35 @@
+$bk-color: #1d1d1d;
+
+$height-large: 170px;
+$height-small: 90px;
+
+.sponsors {
+    background-color: $bk-color;
+    color: white;
+    
+    .content {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+        padding: 0 44px;
+        max-width: 1400px;
+        margin: 0 auto;
+        
+        .sponsor {
+            margin: 25px;
+            width: auto;
+
+            @include responsive('max-height', $height-small, $height-large);
+
+            filter: grayscale(1);
+            transition: 250ms filter ease-in;
+
+            &:hover {
+                filter: grayscale(0);
+                cursor: pointer;
+            }
+        }
+    }
+}
+

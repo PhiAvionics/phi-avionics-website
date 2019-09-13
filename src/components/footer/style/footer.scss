@@ -1,0 +1,52 @@
+$bk-color: #161616;
+$color: #d3d3d3;
+
+.footer {
+    width: 100%;
+
+    background-color: $bk-color;
+    color: $color;
+
+    box-sizing: border-box;
+    padding: 44px 44px 0 44px;
+    font-family: 'Open Sans', sans-serif;
+
+    .content {
+        &>* {
+            float: left;
+        }
+
+        &::after {
+            clear: both;
+            display: table;
+            content: "";
+        }
+
+        #map {
+            width: 300px;
+            height: 300px;
+    
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url('../../../assets/elements/map/map-light.png');
+            background-position: center;
+        }
+    
+        .address {
+            font-size: 21px;
+            margin-left: 15px;
+        }
+    }
+
+    .legal {
+        margin-top: 20px;
+        height: 44px;
+        width: 100%;
+        text-align: center;
+
+        .copyright {
+            color: #9c9c9c;
+            font-weight: 300;
+        }
+    }
+}
