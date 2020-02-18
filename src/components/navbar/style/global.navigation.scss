@@ -2,10 +2,11 @@
 $background-color:      rgba(240, 240, 240, 0.8) !default;
 $text-color:            #000 !default;
 $logo:                  '../../../assets/elements/icons/logo/phi-solo.png' !default;
-$smoothed:              0.66s cubic-bezier(0.645, 0.045, 0.355, 1) !default; 
+$smoothed:              0.33s cubic-bezier(0.645, 0.045, 0.355, 1) !default; //0.66s cubic-bezier(0.645, 0.045, 0.355, 1) !default; 
 $max-width:             960px !default;
 $font:                  'Open Sans', sans-serif !default;
-$font-size:             21px !default;
+$font-size:             18px !default;
+$font-weight:           400;
 
 $split: 768px !default;
 
@@ -33,7 +34,7 @@ $split: 768px !default;
     background-color: $background-color;
     color: $text-color;
 
-    height: 60px;
+    // height: 60px;
 }
 
 .gn-content {
@@ -58,10 +59,11 @@ $split: 768px !default;
         }
 
         .gn-link {
-            font-size: $font-size;
             @include responsive('line-height', $op-height, $ex-height);
             letter-spacing: -.01em;
+            font-size: $font-size;
             font-family: $font;
+            font-weight: $font-weight;
 
             display: inline-block;
             position: relative;
@@ -71,13 +73,14 @@ $split: 768px !default;
             text-decoration: none;
             white-space: nowrap;
             outline-offset: -7px;
-            opacity: 0.75;
+            opacity: 1;
 
             transition: opacity $smoothed;
             color: $text-color;
             
-            &:hover {
-                opacity: 1;
+            &:hover,
+            &.active {
+                opacity: 0.75;
             }
         }
 
@@ -88,8 +91,11 @@ $split: 768px !default;
 
     // TODO: Align logo
     .gn-brandmark {
-        width: 60px;
-        height: 60px;
+        top: 6px;
+        width: 32px;
+        height: 32px;
+        // border: 1px red solid;
+        box-sizing: border-box;
 
         background-size: contain;
         background-repeat: no-repeat;

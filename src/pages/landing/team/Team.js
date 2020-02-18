@@ -17,12 +17,17 @@ export default class Team extends Component {
     render() {
         return (
             <section id="team" className="team section">
-                <h2 className="title">Meet the Team</h2>
-                <div className="team-list">{ 
+                <h1 className="typography headline padding-bottom">Meet the Team</h1>
+                <div className="layout content team-list padding-bottom">{ 
                     members.map((value, index) => {
                         return <Member key={index} name={value.name} title={value.title} description={value.description}/>
                     })
-                }</div>
+                }
+
+                    <div className="team-member more">
+                        Les mer
+                    </div>
+                </div>
             </section>
         )
     }

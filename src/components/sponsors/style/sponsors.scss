@@ -1,4 +1,4 @@
-$bk-color: #1d1d1d;
+$bk-color: #222222;
 
 $height-large: 170px;
 $height-small: 90px;
@@ -14,7 +14,6 @@ $height-small: 90px;
         box-sizing: border-box;
         padding: 0 44px;
         max-width: 1400px;
-        margin: 0 auto;
         
         .sponsor {
             margin: 25px;
@@ -30,6 +29,21 @@ $height-small: 90px;
                 cursor: pointer;
             }
         }
+    }
+}
+
+.container {
+    width: 100vw;
+    height: 500px;
+
+    .img {
+        width: 100%;
+        height: 100%;
+
+        background: url('../../../assets/elements/banners/cave.jpg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
     }
 }
 

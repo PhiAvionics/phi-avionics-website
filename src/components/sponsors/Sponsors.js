@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 // import './style/sponsors.scss'
 
@@ -29,13 +30,20 @@ export default class Sponsors extends Component {
     render() {
         return (
             <section id="sponsors" className="sponsors section">
-                <h2 className="title">Meet the Sponsors</h2>
-                {/* <div className="opportunity">Want your company logo here? We are currently looking for our first sponsors! <a href="sponsor">Click here to learn more about sponsoring PhiAvionics.</a></div> */}
-                <div className="content">{
+                <h1 className="typography headline">Meet the Sponsors</h1>
+                <div className="typography text">
+                    Want to see your company logo here? We are currently looking for our first sponsors!
+                </div>
+                <Link className="typography link" to="./sponsor">Learn more about sponsor opportunities.</Link>
+                <div className="layout content">{
                     sponsors.map((value, index) => {
                         return <img key={index} className={'sponsor ' + value.name.toLowerCase().replace(' ', '-')} src={path + value.file} alt={value.name}/>
                     })
                 }</div>
+
+                {/* <div className="container">
+                    <div className="img"/>
+                </div> */}
             </section>
         )
     }
